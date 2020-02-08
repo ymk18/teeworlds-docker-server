@@ -1,7 +1,7 @@
 FROM alpine:latest AS base
 
 RUN apk --update add --no-cache --virtual .build-dependencies git g++ make cmake libx11 mesa-dev python freetype-dev sdl2-dev glu-dev build-base
-RUN git clone https://github.com/teeworlds/teeworlds --recurse-submodules /opt/teeworlds_build
+RUN git clone -b 0.7.4 https://github.com/teeworlds/teeworlds --recurse-submodules /opt/teeworlds_build
 RUN mkdir /opt/teeworlds_build/build
 RUN cd /opt/teeworlds_build/build && cmake ..
 RUN cd /opt/teeworlds_build/build && make
